@@ -27,7 +27,7 @@
   .d2-layout-header-aside-content {
     @extend %full;
     .d2-theme-header {
-      height: 60px;
+      height: 45px;
       .d2-theme-header-menu {
         overflow: hidden;
         &.is-scrollable {
@@ -40,6 +40,7 @@
           }
         }
         .d2-theme-header-menu__content {
+          margin: 0 auto;
           overflow: hidden;
           .d2-theme-header-menu__scroll {
             white-space: nowrap;
@@ -53,7 +54,7 @@
           }
         }
         .d2-theme-header-menu__prev, .d2-theme-header-menu__next {
-          height: 60px;
+          height: 45px;
           position: absolute;
           top: 0;
           font-size: 20px;
@@ -73,11 +74,15 @@
       }
     }
     .d2-theme-container {
+      position: relative;
       .d2-theme-container-aside {
-        transition: width .3s;
-        position: relative;
+        transition: left .3s;
+        position: absolute;
+        z-index: 999999;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 0px 5px 5px 0px;
         .d2-layout-header-aside-menu-side {
-          @extend %full;
           overflow: hidden;
         }
       }
@@ -86,6 +91,7 @@
         position: relative;
         overflow: hidden;
         .d2-theme-container-main-layer {
+          margin: 0 auto;
           position: absolute;
           top: 0px;
           bottom: 0px;
@@ -99,7 +105,22 @@
     }
   }
 }
-
+@media screen and (min-width: 1600px) {
+  .d2-theme-container-main-layer,.d2-theme-header-menu__content {
+    width: 1150px;
+  }
+  .d2-theme-container-aside {
+    width: 200px;
+  }
+}
+@media screen and (max-width:1600px) {
+  .d2-theme-container-main-layer,.d2-theme-header-menu__content {
+    width: 960px;
+  }
+  .d2-theme-container-aside {
+    width: 180px;
+  }
+}
 // 主题公用
 .d2-layout-header-aside-group {
   &.grayMode {
@@ -120,20 +141,23 @@
         float: left;
         text-align: center;
         img {
-          height: 60px;
+          height: 45px;
         }
       }
       // 折叠侧边栏切换按钮
       .toggle-aside-btn {
         float: left;
-        height: 60px;
-        width: 60px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 45px;
+        width: 45px;
         display: flex;
         justify-content: center;
         align-items: center;
         @extend %unable-select;
         i {
-          font-size: 20px;
+          font-size: 16px;
           margin-top: 4px;
         }
       }
@@ -145,25 +169,32 @@
         %header-menu-item {
           @extend %unable-select;
           i.fa {
-            font-size: 16px;
+            font-size: 14px;
             margin-right: 4px;
           }
         }
         .el-menu-item {
+          height: 45px;
+          line-height: 45px;
           @extend %header-menu-item;
           border-bottom: none;
         }
         .el-submenu {
           @extend %header-menu-item;
           .el-submenu__title {
+            height: 45px;
+            line-height: 45px;
             border-bottom: none;
           }
         }
       }
       // 顶栏右侧的按钮
       .d2-header-right {
+        position: absolute;
+        right: 0px;
+        top: 0px;
         float: right;
-        height: 60px;
+        height: 45px;
         display: flex;
         align-items: center;
         .btn-text {
@@ -183,7 +214,7 @@
         %d2-theme-container-aside-menu-icon {
           width: 20px;
           text-align: center;
-          font-size: 16px;
+          font-size: 14px;
         }
         // [菜单] 正常状态
         .el-menu {
@@ -275,6 +306,7 @@
             overflow: hidden;
             // 填充式布局组件
             .d2-container-full {
+              width: 100%;
               position: absolute;
               top: 0px;
               right: 20px;
@@ -288,7 +320,7 @@
               }
               .d2-container-full__body {
                 flex-grow: 1;
-                padding: 20px 20px;
+                // padding: 20px 20px;
                 overflow: auto;
                 position: relative;
               }

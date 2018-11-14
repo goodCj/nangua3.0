@@ -36,10 +36,25 @@ export default {
      * 切换侧边栏展开和收缩
      * @param {Object} state vuex state
      */
-    asideCollapseToggle ({ state, dispatch }) {
+    asideCollapseEnter ({ state, dispatch }) {
       return new Promise(async resolve => {
         // store 赋值
-        state.asideCollapse = !state.asideCollapse
+        state.asideCollapse = false;
+        // 持久化
+        await dispatch('d2admin/db/set', {
+          dbName: 'sys',
+          path: 'menu.asideCollapse',
+          value: state.asideCollapse,
+          user: true
+        }, { root: true })
+        // end
+        resolve()
+      })
+    },
+    asideCollapseLeave ({ state, dispatch }) {
+      return new Promise(async resolve => {
+        // store 赋值
+        state.asideCollapse = true;
         // 持久化
         await dispatch('d2admin/db/set', {
           dbName: 'sys',

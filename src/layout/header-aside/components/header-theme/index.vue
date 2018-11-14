@@ -10,7 +10,7 @@
         @click="dialogVisible = true">
         <d2-icon
           name="diamond"
-          style="font-size: 16px"/>
+          style="font-size: 14px"/>
       </el-button>
     </el-tooltip>
     <el-dialog

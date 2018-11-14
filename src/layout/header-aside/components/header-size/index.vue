@@ -1,7 +1,7 @@
 <template>
   <el-dropdown placement="bottom" size="small" @command="handleChange">
     <el-button class="d2-mr btn-text can-hover" type="text">
-      <d2-icon name="font" style="font-size: 16px;"/>
+      <d2-icon name="font" style="font-size: 14px;"/>
     </el-button>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item command="default">

@@ -42,7 +42,7 @@ $sizes: (0, 5, 10, 15, 20);
   .#{$prefix}-m-#{nth($sizes, $index)} { margin: #{nth($sizes, $index)}px !important; }
   .#{$prefix}-mt-#{nth($sizes, $index)} { margin-top: #{nth($sizes, $index)}px !important; }
   .#{$prefix}-mr-#{nth($sizes, $index)} { margin-right: #{nth($sizes, $index)}px !important; }
-  .#{$prefix}-mb-#{nth($sizes, $index)} { margin-bottom: #{nth($sizes, $index)}px !important; }
+  // .#{$prefix}-mb-#{nth($sizes, $index)} { margin-bottom: #{nth($sizes, $index)}px !important; }
   .#{$prefix}-ml-#{nth($sizes, $index)} { margin-left: #{nth($sizes, $index)}px !important; }
 
   .#{$prefix}-p-#{nth($sizes, $index)} { padding: #{nth($sizes, $index)}px !important; }

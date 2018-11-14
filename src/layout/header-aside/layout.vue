@@ -11,13 +11,17 @@
       <div
         class="d2-theme-header"
         :style="{
-          opacity: this.searchActive ? 0.5 : 1
+          opacity: this.searchActive ? 0.5 : 1,
+          height: '45px',
+          backgroundColor: 'rgba(0, 0, 0, 0.647058823529412)',
+          position: 'relative'
         }"
         flex-box="0"
         flex>
-        <div class="toggle-aside-btn" @click="handleToggleAside" flex-box="0">
+        <div class="toggle-aside-btn" @mouseenter="mouseEnterAside" flex-box="0">
           <d2-icon name="bars"/>
         </div>
+        <!-- tab -->
         <d2-menu-header flex-box="1"/>
         <!-- 顶栏右侧 -->
         <div class="d2-header-right" flex-box="0">
@@ -38,9 +42,9 @@
           ref="aside"
           class="d2-theme-container-aside"
           :style="{
-            width: asideCollapse ? asideWidthCollapse : asideWidth,
+            left: asideCollapse ? asideLeftCollapse : asideLeft,
             opacity: this.searchActive ? 0.5 : 1
-          }">
+          }" @mouseenter="mouseEnterAside">
           <d2-menu-side/>
         </div>
         <!-- 主体 -->
@@ -56,10 +60,6 @@
           <!-- 内容 -->
           <transition name="fade-scale">
             <div v-show="!searchActive" class="d2-theme-container-main-layer" flex="dir:top">
-              <!-- tab -->
-              <div class="d2-theme-container-main-header" flex-box="0">
-                <d2-tabs/>
-              </div>
               <!-- 页面 -->
               <div class="d2-theme-container-main-body" flex-box="1">
                 <transition :name="transitionActive ? 'fade-transverse' : ''">
@@ -77,68 +77,71 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex'
-import mixinSearch from './mixins/search'
+import { mapState, mapGetters, mapActions } from "vuex";
+import mixinSearch from "./mixins/search";
 export default {
-  name: 'd2-layout-header-aside',
-  mixins: [
-    mixinSearch
-  ],
+  name: "d2-layout-header-aside",
+  mixins: [mixinSearch],
   components: {
-    'd2-menu-side': () => import('./components/menu-side'),
-    'd2-menu-header': () => import('./components/menu-header'),
-    'd2-tabs': () => import('./components/tabs'),
-    'd2-header-fullscreen': () => import('./components/header-fullscreen'),
-    'd2-header-search': () => import('./components/header-search'),
-    'd2-header-size': () => import('./components/header-size'),
-    'd2-header-theme': () => import('./components/header-theme'),
-    'd2-header-user': () => import('./components/header-user'),
-    'd2-header-error-log': () => import('./components/header-error-log')
+    "d2-menu-side": () => import("./components/menu-side"),
+    "d2-menu-header": () => import("./components/menu-header"),
+    "d2-tabs": () => import("./components/tabs"),
+    "d2-header-fullscreen": () => import("./components/header-fullscreen"),
+    "d2-header-search": () => import("./components/header-search"),
+    "d2-header-size": () => import("./components/header-size"),
+    "d2-header-theme": () => import("./components/header-theme"),
+    "d2-header-user": () => import("./components/header-user"),
+    "d2-header-error-log": () => import("./components/header-error-log")
   },
-  data () {
+  data() {
     return {
       // [侧边栏宽度] 正常状态
-      asideWidth: '200px',
+      asideLeft: "0px",
       // [侧边栏宽度] 折叠状态
-      asideWidthCollapse: '65px'
-    }
+      asideLeftCollapse: "-200px"
+    };
   },
   computed: {
-    ...mapState('d2admin', {
+    ...mapState("d2admin", {
       keepAlive: state => state.page.keepAlive,
       grayActive: state => state.gray.active,
       transitionActive: state => state.transition.active,
       asideCollapse: state => state.menu.asideCollapse
     }),
-    ...mapGetters('d2admin', {
-      themeActiveSetting: 'theme/activeSetting'
+    ...mapGetters("d2admin", {
+      themeActiveSetting: "theme/activeSetting"
     }),
     /**
      * @description 最外层容器的背景图片样式
      */
-    styleLayoutMainGroup () {
+    styleLayoutMainGroup() {
       return {
-        ...this.themeActiveSetting.backgroundImage ? {
-          backgroundImage: `url('${this.$baseUrl}${this.themeActiveSetting.backgroundImage}')`
-        } : {}
-      }
+        ...(this.themeActiveSetting.backgroundImage
+          ? {
+              backgroundImage: `url('${this.$baseUrl}${
+                this.themeActiveSetting.backgroundImage
+              }')`
+            }
+          : {})
+      };
     }
   },
   methods: {
-    ...mapActions('d2admin/menu', [
-      'asideCollapseToggle'
-    ]),
+    ...mapActions("d2admin/menu", ["asideCollapseEnter", "asideCollapseLeave"]),
     /**
      * 接收点击切换侧边栏的按钮
      */
-    handleToggleAside () {
-      this.asideCollapseToggle()
+    mouseEnterAside() {
+      this.asideCollapseEnter();
+    },
+    mouseLeaveAside() {
+      this.asideCollapseLeave();
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
 // 注册主题
-@import '~@/assets/style/theme/register.scss';
+@import "~@/assets/style/theme/register.scss";
 </style>

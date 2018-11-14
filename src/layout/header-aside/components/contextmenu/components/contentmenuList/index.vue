@@ -46,7 +46,7 @@ export default {
   .d2-contentmenu-item {
     padding: 8px 20px 8px 15px;
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
     color: #606266;
     cursor: pointer;
     &:hover {

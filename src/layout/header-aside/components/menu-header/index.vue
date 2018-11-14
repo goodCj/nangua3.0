@@ -1,6 +1,6 @@
 <template>
   <div class="d2-theme-header-menu" ref="page" :class="{'is-scrollable': isScroll}" flex="cross:center">
-    <div class="d2-theme-header-menu__content" ref="content" flex-box="1" flex>
+    <div class="d2-theme-header-menu__content" ref="content"  flex>
       <div class="d2-theme-header-menu__scroll" ref="scroll" flex-box="0" :style="'transform: translateX(' + currentTranslateX + 'px);'">
         <el-menu mode="horizontal" :default-active="active" @select="handleMenuSelect">
           <template v-for="(menu, menuIndex) in header">

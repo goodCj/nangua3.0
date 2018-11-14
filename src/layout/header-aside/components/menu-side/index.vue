@@ -1,5 +1,9 @@
 <template>
   <div class="d2-layout-header-aside-menu-side">
+    <div :style="{padding:'10px 10px'}">
+      <img :style="{width: '60%'}" src="image/theme/themeOne/logo/all.png" alt="">
+      <span :style="{verticalAlign:'top',marginTop:'12px',display:'inline-block',marginLeft:'12px',fontSize:'14px'}">v3.0</span>
+    </div>
     <el-menu
       :collapse="asideCollapse"
       :unique-opened="true"
@@ -96,3 +100,4 @@ export default {
   }
 }
 </script>
+

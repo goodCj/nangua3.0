@@ -5,7 +5,7 @@
     placement="bottom">
     <el-button class="d2-mr btn-text can-hover" type="text" @click="toggle">
       <d2-icon v-if="active" name="compress"/>
-      <d2-icon v-else name="arrows-alt" style="font-size: 16px"/>
+      <d2-icon v-else name="arrows-alt" style="font-size: 14px"/>
     </el-button>
   </el-tooltip>
 </template>

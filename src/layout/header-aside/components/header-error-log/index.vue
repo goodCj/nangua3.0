@@ -15,12 +15,12 @@
           :is-dot="logLengthError === 0">
           <d2-icon
             :name="logLengthError === 0 ? 'dot-circle-o' : 'bug'"
-            style="font-size: 20px"/>
+            style="font-size: 15px"/>
         </el-badge>
         <d2-icon
           v-else
           name="dot-circle-o"
-          style="font-size: 20px"/>
+          style="font-size: 15px"/>
       </el-button>
     </el-tooltip>
     <el-dialog

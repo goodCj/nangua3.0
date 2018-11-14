@@ -8,7 +8,7 @@
     </template>
     <template v-for="(child, childIndex) in menu.children">
       <d2-layout-header-aside-menu-item v-if="child.children === undefined" :menu="child" :key="childIndex"/>
-      <d2-layout-header-aside-menu-sub v-else :menu="child" :key="childIndex"/>
+      <d2-layout-header-aside-menu-sub v-else :menu="child" :key="childIndex" :style="{display:'none'}"/>
     </template>
   </el-submenu>
 </template>

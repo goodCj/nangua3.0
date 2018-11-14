@@ -43,10 +43,14 @@
   .el-submenu__title {
     @extend %unable-select;
     @extend %el-menu-icon;
+    height: 45px;
+          line-height: 45px;
   }
   .el-menu-item {
     @extend %unable-select;
     @extend %el-menu-icon;
+    height: 45px;
+    line-height: 45px;
   }
   .el-submenu__title:hover {
     @include theme-menu-hover-style;
@@ -87,6 +91,8 @@
     // 顶栏菜单
     .el-menu {
       .el-menu-item {
+        height: 45px;
+          line-height: 45px;
         transition: border-top-color 0s;
         color: $theme-header-item-color;
         background: $theme-header-item-background-color;
@@ -110,6 +116,8 @@
       .el-submenu {
         &.is-active {
           .el-submenu__title {
+            height: 45px;
+          line-height: 45px;
             color: $theme-header-item-color-active;
             background: $theme-header-item-background-color-active;
             i.fa { color: inherit; }
@@ -181,6 +189,8 @@
       // [菜单] 正常状态
       .el-menu {
         .el-menu-item {
+          height: 45px;
+          line-height: 45px;
           color: $theme-aside-item-color;
           background: $theme-aside-item-background-color;
           i {
@@ -214,6 +224,8 @@
       }
       .el-submenu {
         .el-submenu__title {
+          height: 45px;
+          line-height: 45px;
           color: $theme-aside-item-color;
           background: $theme-aside-item-background-color;
           i {
@@ -299,6 +311,7 @@
             border: $theme-container-border-outer;
             border-top: none;
             border-bottom: none;
+            border-left: none;
             .d2-container-full__header {
               border-bottom: $theme-container-border-inner;
               background: $theme-container-header-footer-background-color;
