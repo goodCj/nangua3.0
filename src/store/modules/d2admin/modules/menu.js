@@ -39,7 +39,7 @@ export default {
     asideCollapseEnter ({ state, dispatch }) {
       return new Promise(async resolve => {
         // store 赋值
-        state.asideCollapse = false;
+        state.asideCollapse = false
         // 持久化
         await dispatch('d2admin/db/set', {
           dbName: 'sys',
@@ -54,7 +54,7 @@ export default {
     asideCollapseLeave ({ state, dispatch }) {
       return new Promise(async resolve => {
         // store 赋值
-        state.asideCollapse = true;
+        state.asideCollapse = true
         // 持久化
         await dispatch('d2admin/db/set', {
           dbName: 'sys',

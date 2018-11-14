@@ -18,7 +18,7 @@
         }"
         flex-box="0"
         flex>
-        <div class="toggle-aside-btn" @mouseenter="mouseEnterAside" flex-box="0">
+        <div class="toggle-aside-btn" @mouseenter="mouseEnterAside" @mouseleave="mouseLeaveAside" flex-box="0">
           <d2-icon name="bars"/>
         </div>
         <!-- tab -->
@@ -44,7 +44,7 @@
           :style="{
             left: asideCollapse ? asideLeftCollapse : asideLeft,
             opacity: this.searchActive ? 0.5 : 1
-          }" @mouseenter="mouseEnterAside">
+          }" @mouseenter="mouseEnterAside" @mouseleave="mouseLeaveAside">
           <d2-menu-side/>
         </div>
         <!-- 主体 -->
