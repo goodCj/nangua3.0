@@ -1,6 +1,6 @@
 <template>
-  <div class="d2-multiple-page-control-group" flex>
-    <div class="d2-multiple-page-control-content" flex-box="1">
+  <div class="d2-multiple-page-control-group">
+    <div class="d2-multiple-page-control-content">
       <div class="d2-multiple-page-control-content-inner">
         <d2-contextmenu
           :visible.sync="contextmenuFlag"
@@ -27,8 +27,7 @@
       </div>
     </div>
     <div
-      class="d2-multiple-page-control-btn"
-      flex-box="0">
+      class="d2-multiple-page-control-btn">
       <el-dropdown
         size="default"
         split-button
@@ -183,3 +182,17 @@ export default {
   }
 }
 </script>
+<style>
+  .el-tabs__item {
+    height: 45px;
+    line-height: 45px;
+    border-left: 0 !important;
+  }
+  .el-tabs--card>.el-tabs__header .el-tabs__item {
+    border-left: 0 !important;
+  }
+  .el-tabs__nav {
+    border: 0!important;
+  }
+</style>
+

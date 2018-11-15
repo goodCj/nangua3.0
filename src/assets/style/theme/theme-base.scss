@@ -29,6 +29,7 @@
     .d2-theme-header {
       height: 45px;
       .d2-theme-header-menu {
+        margin: 0 auto;
         overflow: hidden;
         &.is-scrollable {
           position: relative;
@@ -40,6 +41,7 @@
           }
         }
         .d2-theme-header-menu__content {
+          width: 1150px;
           margin: 0 auto;
           overflow: hidden;
           .d2-theme-header-menu__scroll {
@@ -91,6 +93,7 @@
         position: relative;
         overflow: hidden;
         .d2-theme-container-main-layer {
+          width: 1150px;
           margin: 0 auto;
           position: absolute;
           top: 0px;
@@ -103,22 +106,6 @@
         }
       }
     }
-  }
-}
-@media screen and (min-width: 1600px) {
-  .d2-theme-container-main-layer,.d2-theme-header-menu__content {
-    width: 1150px;
-  }
-  .d2-theme-container-aside {
-    width: 200px;
-  }
-}
-@media screen and (max-width:1600px) {
-  .d2-theme-container-main-layer,.d2-theme-header-menu__content {
-    width: 960px;
-  }
-  .d2-theme-container-aside {
-    width: 180px;
   }
 }
 // 主题公用
@@ -211,6 +198,7 @@
     .d2-theme-container {
       // 侧边栏
       .d2-theme-container-aside {
+        width: 200px;
         %d2-theme-container-aside-menu-icon {
           width: 20px;
           text-align: center;
@@ -267,7 +255,8 @@
         .d2-theme-container-main-header {
           // 多页面控制器
           .d2-multiple-page-control-group {
-            padding-right: 20px;
+            margin: 0 auto;
+            // padding-right: 20px;
             .d2-multiple-page-control-content {
               overflow: auto;
               position: relative;
@@ -277,6 +266,7 @@
                     margin: 0px;
                   }
                   .el-tabs__nav {
+                    border: none!important;
                     overflow: hidden;
                   }
                 }
